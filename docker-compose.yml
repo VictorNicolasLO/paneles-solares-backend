@@ -10,6 +10,7 @@ services:
       - '${API_PORT}:3000'
     environment:
       - NODE_ENV=${NODE_ENV}
+      - SECRET=${SECRET}
     restart: always
     networks:
       - db
