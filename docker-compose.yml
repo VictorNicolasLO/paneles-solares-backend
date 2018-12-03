@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  backend:
+    build: .
+    ports:
+      - '${API_PORT}:3000'
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    restart: always
