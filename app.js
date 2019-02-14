@@ -3,7 +3,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const config = require('./config');
-
+const cors = require('cors');
 //Mongoose conection
 var mongoose = require('mongoose');
 mongoose.connect(config.database);
@@ -12,7 +12,7 @@ mongoose.connect(config.database);
 const indexRouter = require('./modules/index');
 
 const app = express();
-
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
