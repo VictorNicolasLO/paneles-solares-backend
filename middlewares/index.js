@@ -9,6 +9,17 @@ function arduino(req, res, next) {
   }
 }
 
+function weaherStation(req, res, next) {
+  const key = req.headers.token;
+  const token = key.split(' ')[1];
+  if (token == config.weatherStationToken) {
+    next();
+  } else {
+    res.status(500).json({ message: 'Authentication failed' });
+  }
+}
+
 module.exports = {
-  arduino
+  arduino,
+  weaherStation
 };
