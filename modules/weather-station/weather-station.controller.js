@@ -40,7 +40,23 @@ async function create(req, res) {
   }
 }
 
+async function get(req, res) {
+  try {
+    const items = await WeatherStation.find({});
+    res.json({
+      success: true,
+      data: items
+    });
+  } catch (e) {
+    res.status(500).json({
+      success: false,
+      message: e.toString()
+    });
+  }
+}
+
 module.exports = {
   getLastDate,
-  create
+  create,
+  get
 };
