@@ -58,7 +58,7 @@ async function get(req, res) {
 async function getByDateRange(req, res) {
   try {
     const {
-      params: { dateFrom, dateTo },
+      query: { dateFrom, dateTo },
     } = req;
 
     const dateFilter = {};
